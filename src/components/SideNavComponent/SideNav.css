@@ -1,0 +1,131 @@
+.parent-container-side-nav{
+    width: inherit;
+    height: inherit;
+    flex-direction: row;
+    background-color: rgb(81, 150, 211)
+
+
+}
+.upper-container-side-nav{
+    display:flex;
+    flex-direction: row;
+    height: 20%;
+    width: 100%;
+   
+    flex-wrap: wrap;
+    border-bottom: 1px solid black;
+}
+
+.upper-above-container-side-nav{
+    display:flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    flex-wrap: wrap;
+    
+}
+.upper-above-left-container-side-nav{
+    display:flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+    height: 80%;
+    margin-top: 3%;
+    
+    width: 30%;
+    flex-wrap: wrap;
+  
+
+}
+
+.upper-above-right-container-side-nav{
+    display:flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   margin-left: 3%;
+    height: 100%;
+    width: 70%;
+    flex-wrap: wrap;
+   
+}
+
+
+.upper-below-container-side-nav{
+    display:flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    flex-wrap: wrap;
+  
+    
+}
+
+.upper-below-left-container-side-nav{
+    display:flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+    height: 100%;
+    width: 75%;
+    flex-wrap: wrap;
+    
+
+}
+
+.upper-below-right-container-side-nav{
+    display:flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+    height: 100%;
+    width: 25%;
+    flex-wrap: wrap;
+    
+}
+
+.special-span-side-nav {
+    flex: 0 1 50%;
+  }
+  
+.lower-container-side-nav{
+    display:flex;
+    height: 80%;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
+
+}
+.responsive-side-nav{
+font-size: 3vh;
+
+}
+.flex-ul{
+    background-color: aqua;
+    width: 80%;
+    height: 80%;
+}
+.flex-ul>li{
+    font-size: 3vh;
+    margin-bottom: 25%;
+    padding-right: 35%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+a:hover{
+    color: whitesmoke;
+    text-shadow: 0 0 10px rgb(57, 60, 236), 0 0 15px rgb(0, 17, 255);
+ 
+    
+
+}
+a:not(hover){
+    color:black;
+    border-color: aqua;
+}
+ 

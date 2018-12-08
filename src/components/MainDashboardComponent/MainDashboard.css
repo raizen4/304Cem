@@ -1,0 +1,130 @@
+.big{
+    background-color:darkcyan;
+  }
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .searchbar-main-dashboard{
+    box-sizing: border-box;
+    box-shadow: rgb(25, 0, 255);
+    height: 100%;
+    width: 100%;
+  
+  }
+  .parent-container-web{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+  
+  
+  }
+  
+  
+
+  .left-container-web{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 15%;
+    background-color: antiquewhite
+  
+  
+  }
+  .right-container-web{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 85%;
+  }
+  .header-container-web{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 7%;
+    width: 100%;
+    /*background-color: rgb(0, 0, 0)*/
+  }
+  .header-right-container-web{
+    width:15%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    background-color: #61dafb
+    
+  }
+  .header-left-container-web{
+    display:inherit;
+    width:85%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end 
+  }
+  
+  
+  
+  .sidenav-container-web{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  .main-container-web{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 93%;
+    width: 100%;
+    background-color:aquamarine
+  }
+  
+  .searchBar-container-web{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: aqua;
+    height: 10%;
+    width: 100%;
+
+  }
+
+  .main-item-container-dashboard{
+    width: 80%;
+    height: 80;
+    display: flex;
+    
+  }
+  .special-input
+  {
+    font-size: 3vh;
+    color:rgb(43, 38, 38,0.7);
+    z-index:100;
+  }
+  .special-input:focus{
+    border-width: 10%;
+  }
+  .special-input::placeholder{
+   font-size: 4vh;
+   color:rgb(43, 38, 38,0.2)
+  }
+  
