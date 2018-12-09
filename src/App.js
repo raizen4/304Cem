@@ -10,7 +10,7 @@ render(){
     <div>          
          <Route exact path="/" component={Login}/>
          <Route   path="/Dashboard" component={MainDashboard}/>
-         <Route  path="/Dashboard/NewItem" component={ItemDetails}/>
+         <Route  path="/Dashboard/:id" component={ItemDetails}/>
          <Redirect to="/"></Redirect> 
     </div>
     </BrowserRouter>

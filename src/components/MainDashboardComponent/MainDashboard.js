@@ -35,8 +35,85 @@ constructor(){
   };
 
   componentDidMount(){
+    let testItems=[];
+    testItems.push(
+      {
+        _id:"asddfa3e4e34fd",
+        AuthorId:"11122112112",
+        AuthorName:"Bogdan",
+        Title:"Gtx 1070",
+        Condition:"A",
+        Location:"Bucharest",
+        Description:"This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.",
+        DateCreated:"21.Jan.2019",
+        Images:["https://goo.gl/images/nsSPRa","34433"],
+        Offers:[
+          {
+            _id:"dsgqwt4534243e",
+            BidderName:"Raluca",
+            BidAmmount:150,
+            BidderMessage:"this is a test message"
+          }
+        ]
+      },
+      {
+        _id:"asddfa3e4c34fd",
+        AuthorId:"343251554334",
+        AuthorName:"Gogoasa",
+        Title:"Gtx 1060",
+        Condition:"B",
+        Location:"Guatamala",
+        Description:"This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.",
+        DateCreated:"08.Jan.2020",
+        Images:["../../images/test_photo.jpg","34433"],
+        Offers:[
+          {
+            _id:"dsgqwt4534243e",
+            BidderName:"Raluca",
+            BidAmmount:150,
+            BidderMessage:"this is a test message",
+            Status:"Pending"
+          },
+          {
+            _id:"dsgqwtd534243e",
+            BidderName:"Gogu",
+            BidAmmount:350,
+            BidderMessage:"this is a test message",
+            Status:"Pending"
+          }
+        ]
+      },
+      {
+        _id:"fasde43q45cfd",
+        AuthorId:"43124324321",
+        AuthorName:"Relu",
+        Title:"Gtx 1060",
+        Condition:"B",
+        Location:"France",
+        Description:"This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.",
+        DateCreated:"21.Jan.2020",
+        Images:["../../images/test_photo.jpg","34433"],
+        Offers:[
+          {
+            _id:"dsgqwt4534243e",
+            BidderName:"Raluca",
+            BidAmmount:150,
+            BidderMessage:"this is a test message",
+            Status:"Pending"
+          },
+          {
+            _id:"dsgqwtd534243e",
+            BidderName:"Gogu",
+            BidAmmount:350,
+            BidderMessage:"this is a test message",
+            Status:"Pending"
+          }
+        ]
+      },
+      
+    )
     this.setState({
-      Items:["1","2","3","4"]
+      Items:testItems
     })
   }
 
@@ -45,7 +122,7 @@ constructor(){
     console.log(itemIndex);
     let showThisItemDetails=this.state.Items[itemIndex];
     this.props.history.push({
-      pathname:"/Dashboard/NewItem",
+      pathname:"/Dashboard/"+showThisItemDetails._id,
       state:{
           itemPressed:showThisItemDetails,
           shouldOpen:true
@@ -92,9 +169,8 @@ constructor(){
 
             <div className={styles.cards_list}>
                         {this.state.Items.map((item,index) =>
-                            <div onClick={()=>this.AccessItemDetails(index)}>
-                                <ItemTemplate key={item} value={item}/>
-                            </div>
+                                <ItemTemplate click={()=>this.AccessItemDetails(index)} key={item._id} value={item}></ItemTemplate>
+                           
                         )};
                     </div>
              

@@ -2,6 +2,7 @@ import Modal from 'react-responsive-modal';
 import React, { Component } from 'react';
 import styles from "./ItemDetails.module.scss"
 import Image from 'react-bootstrap/lib/Image'
+import {Button} from "react-bootstrap"
 import classnames from "classnames";
 let cx=classnames.bind(styles);
 class ItemDetails extends React.Component {
@@ -36,7 +37,7 @@ class ItemDetails extends React.Component {
     render() {
         return (
           <div>
-            <Modal closeOnOverlayClick={true} open={this.state.modalIsOpen} onClose={this.onCloseModal} center>
+            <Modal  closeOnOverlayClick={true} open={this.state.modalIsOpen} onClose={this.onCloseModal} center>
             <div className={styles.cards__item}>
             <div className={styles.card}>
               <div className={cx(styles.card__image)}>
@@ -59,7 +60,12 @@ class ItemDetails extends React.Component {
               <div className={styles.card__content}>
                
                 <p className={styles.card__text}>This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
-                <button className={cx(styles.btn, styles.btn__block,styles.card__btn)}>Button</button>
+               
+                <div className={styles.buttons_cotainer}> 
+                  <Button   bsClass={cx(styles.btn, styles.btn__block,styles.button_item_details_style)}>Add to Fav</Button>
+                  <Button    bsClass={cx(styles.btn, styles.btn__block,styles.button_item_details_style)}>Make Offer</Button>
+                  <Button bsClass={cx(styles.btn, styles.btn__block,styles.button_item_details_style)}>Send  Message</Button>
+               </div>
               </div>
             </div>
           </div>

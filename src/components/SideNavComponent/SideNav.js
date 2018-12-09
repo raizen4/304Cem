@@ -13,7 +13,7 @@ render(){
                 
                 <div className={styles.upper_above_container}>
                     <div className={styles.upper_above_left_container}>
-                    <Image src={require('../../images/userDefault.png')} responsive='true' circle width="80%" height="100%" />
+                    <Image src={require('../../images/userDefault.png')} responsive={true} circle width="80%" height="100%" />
                     </div>
                     <div className={styles.upper_above_right_container}>
                     <span className={styles.responsive_span}>Welcome</span>

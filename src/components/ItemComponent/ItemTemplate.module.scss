@@ -12,7 +12,6 @@ $gray_lightest:             lighten($gray_lighter,4%);
 }
 
 img {
-  height: auto;
   max-width: 100%;
   vertical-align: middle;
 }
@@ -44,7 +43,17 @@ img {
     width: 33%;
   }
 }
+.card_meta {
+  flex: 1 1 auto;
+  max-height: 0;
+  overflow: hidden;
+  color: #666;
+  font-size: .78em;
+  text-transform: uppercase;
+  padding: 0 5%;
+  
 
+}
 .card {
   background-color: white;
   border-radius: 0.25rem;
@@ -52,12 +61,19 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
   
   &:hover {
     box-shadow: 0 20px 20px -14px rgba(0, 153, 255, 0.555);
     .card__image {
       filter: contrast(100%);
-    
+    }
+    &:hover{
+      .card__content
+     .card_meta {
+        max-height: 6em;
+        transition: max-height 0.5s ease-in-out;
+      }
     }
   }
 }
@@ -117,4 +133,6 @@ img {
   line-height: 1.5;
   margin-bottom: 1.25rem;
 }
+
+
 

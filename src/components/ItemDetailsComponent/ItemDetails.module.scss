@@ -18,19 +18,31 @@ img {
 }
 
 .btn {
-  background-color: white;
-  border: 1px solid $gray-light;
+  &:hover{
+    opacity: 1;
+  }
+ &.btn__block {
+  @media screen and (max-width:960px){
+    width: 100%;
+  }
+  width: 25%;
+  margin:21px;
+}
+  opacity: 0.6;
+  border: 2px solid $gray-light;
   //border-radius: 1rem;
   color: $gray-dark;
-  padding: 0.5rem;
-  text-transform: lowercase;
+  border-radius: 5%;
+  padding: 1.5rem;
+  color:whitesmoke;
+  text-transform: uppercase;
 }
 
-.btn__block {
-  display: block;
-  width: 100%;
+
+.button_item_details_style{
+  background-color: rgb(79, 146, 79);
 }
- 
+
 
 
 .cards__item {
@@ -47,19 +59,9 @@ img {
 
 .card {
   background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 20px -14px rgba(0, 0, 0, 0.555);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
-  &:hover {
-    box-shadow: 0 20px 20px -14px rgba(0, 153, 255, 0.555);
-    .card__image {
-      filter: contrast(100%);
-    
-    }
-  }
 }
 
 .card__content {
@@ -78,7 +80,7 @@ img {
   background-size: cover;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  filter: contrast(70%);
+  filter: contrast(100%);
   overflow: hidden;
   align-self: center;
   transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);;
@@ -116,5 +118,15 @@ img {
   font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
+}
+.buttons_cotainer{
+
+  @media screen and (max-width:960px){
+    flex-direction:row;
+  }
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+
 }
 
