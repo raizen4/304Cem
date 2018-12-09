@@ -1,0 +1,11 @@
+$h1_responsive: 5vh;
+$h2_responsive:4vh;
+$h3_responsive:3vh;
+$h4_responsive:2vh;
+@mixin setLayoutSize($w,$h){
+    width:$w;
+    height: $h;
+    min-height: $h;
+    min-width: $w;
+  }
+

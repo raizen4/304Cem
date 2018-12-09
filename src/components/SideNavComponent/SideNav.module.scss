@@ -1,4 +1,5 @@
-.parent-container-side-nav{
+@import "../../App.module.scss";
+.parent_container{
     width: inherit;
     height: inherit;
     flex-direction: row;
@@ -6,7 +7,7 @@
 
 
 }
-.upper-container-side-nav{
+.upper_container{
     display:flex;
     flex-direction: row;
     height: 20%;
@@ -16,7 +17,7 @@
     border-bottom: 1px solid black;
 }
 
-.upper-above-container-side-nav{
+.upper_above_container{
     display:flex;
     flex-direction: column;
     height: 50%;
@@ -24,7 +25,7 @@
     flex-wrap: wrap;
     
 }
-.upper-above-left-container-side-nav{
+.upper_above_left_container{
     display:flex;
     flex-direction: column;
    justify-content: center;
@@ -38,7 +39,7 @@
 
 }
 
-.upper-above-right-container-side-nav{
+.upper_above_right_container{
     display:flex;
     flex-direction: column;
    justify-content: center;
@@ -51,29 +52,31 @@
 }
 
 
-.upper-below-container-side-nav{
+.upper_below_container{
     display:flex;
     flex-direction: column;
     height: 50%;
     width: 100%;
     flex-wrap: wrap;
+    
   
     
 }
 
-.upper-below-left-container-side-nav{
+.upper_below_left_container{
     display:flex;
-    flex-direction: column;
-   justify-content: center;
+    flex-direction: row;
+   justify-content: flex-start;
    align-items: flex-start;
     height: 100%;
     width: 75%;
     flex-wrap: wrap;
     
+    
 
 }
 
-.upper-below-right-container-side-nav{
+.upper_below_right_container{
     display:flex;
     flex-direction: column;
    justify-content: center;
@@ -84,11 +87,12 @@
     
 }
 
-.special-span-side-nav {
-    flex: 0 1 50%;
+.special_span {
+    flex: 2 1 100%;
+   
   }
   
-.lower-container-side-nav{
+.lower_container{
     display:flex;
     height: 80%;
     flex-wrap: wrap;
@@ -100,32 +104,32 @@
 
 
 }
-.responsive-side-nav{
-font-size: 3vh;
-
+.responsive_span{
+font-size: $h3_responsive;
 }
-.flex-ul{
-    background-color: aqua;
+
+.flex_ul{
     width: 80%;
     height: 80%;
-}
-.flex-ul>li{
-    font-size: 3vh;
-    margin-bottom: 25%;
-    padding-right: 35%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
+    & li{
+       
+        font-size: 3vh;
+        margin-bottom: 25%;
+        padding-right: 35%;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
 }
 
-a:hover{
+.special_links{
+text-decoration: none;
+&:hover{
     color: whitesmoke;
-    text-shadow: 0 0 10px rgb(57, 60, 236), 0 0 15px rgb(0, 17, 255);
- 
-    
+    text-shadow: 0 0 10px rgb(241, 241, 255), 0 0 20px rgb(0, 17, 255);
+}
+&:not(hover){
+        color:wheat;
+        border-color: rgb(255, 255, 255);
+    }
+}
 
-}
-a:not(hover){
-    color:black;
-    border-color: aqua;
-}
  

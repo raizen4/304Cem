@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Login.css';
+import styles from './Login.module.scss';
 import ResizeAware from 'react-resize-aware';
 import {Button} from 'react-bootstrap'
 import ApiWrapper from '../../ApiService/ApiWrapper'
 import AlertComponent from '../AlertComponent/AlertComponent'
-
+import AuthPopup from "../../Helpers/PopupGenerator";
 class Login extends Component {
 
   constructor(){
@@ -70,7 +70,7 @@ RegisterNewUser=async()=>{
 
   else{
     try{
-      const facadeResponse= await this.state.Api.Log_in(this.state.LoginDetails.Email,this.state.LoginDetails.Password);
+      const facadeResponse= await this.state.Api.Register(this.state.RegisterDetails.DisplayName,this.state.RegisterDetails.Email,this.state.RegisterDetails.Password);
       if(facadeResponse!=null){
         this.setState({
           ReturnedUser:{
@@ -83,11 +83,7 @@ RegisterNewUser=async()=>{
         })
       }
       else{
-        this.setState({
-          Errors:{
-            RequestErr:true
-          }
-        })
+        AuthPopup();
       }
     }catch(err){
       this.setState({
@@ -163,10 +159,11 @@ HandleDismissRequestErrorAlert=()=>{
   
   render() {
     
-    let alertAuth;
-    let alertRequestError;
+    var alertAuth;
+    var alertRequestError;
     if (this.state.Errors.AuthError) {
       alertAuth=<AlertComponent 
+        shouldBeSeen={1000}
         Title={"Oh Snap, You got an error"}
         Message={"Please complete all the fields before submitting!"}
         PositiveButtonHidden={false}
@@ -175,7 +172,7 @@ HandleDismissRequestErrorAlert=()=>{
         HandlePositive={()=>this.HandleDismissAuthErrorAlert()}
         >
         </AlertComponent>
-      
+     
     }
     if(this.state.Errors.RequestErr){
       alertRequestError=
@@ -194,28 +191,26 @@ HandleDismissRequestErrorAlert=()=>{
     return (
       <ResizeAware
       onlyEvent
-      onResize={this.handleResize}>
-      {
-    this.state.IsMobile===false?
-        
-     
+      onResize={this.handleResize}>  
+     {
        this.state.LoginLayoutActive ?
 
-      <div className="parent-container">
-        <div className="auth-container">
-        <div className="error-container">
-      {alertAuth}
-      </div>
-          <span className="span-login">Login </span>
-          <input className="auth-input" placeholder="Email here"></input>
-          <input className="auth-input" type="password" placeholder="Password here"></input>
+      <div className={styles.parent_container}>
+           <div className={styles.message_box}>
+            {alertAuth}
+           </div>
+        <div className={styles.auth_container}>
+    
+          <span className={styles.span_login}>Login </span>
+          <input className={styles.special_input} placeholder="Email here"></input>
+          <input className={styles.special_input} type="password" placeholder="Password here"></input>
           
           <Button bsStyle="primary" 
           style={{marginBottom:"0%",marginTop:"2%"}}
            onClick={()=>this.SignInUser()} 
            bsSize="large" 
            block>
-           Let me in
+           <span className={styles.span_responsive}>Sign In</span>
           </Button>
      
            <Button bsStyle="primary" 
@@ -223,7 +218,7 @@ HandleDismissRequestErrorAlert=()=>{
             onClick={()=>this.ShowRegisterPage()}
             bsSize="large"
              block>
-             Sign Up
+              <span className={styles.span_responsive}>Sign Up!</span>
             </Button>
             
            <Button bsStyle="info" 
@@ -231,19 +226,20 @@ HandleDismissRequestErrorAlert=()=>{
             onClick={()=>this.NavigateToDashboard()}
             bsSize="large"
              block>
-             Continue as Guest
+             <span className={styles.span_responsive}>Continue as Guest</span>
             </Button>
           </div>
         </div>
       :
-       <div className="parent-container">
-        <div className="auth-container">
-            <div>{alertAuth}</div>
+       <div className={styles.parent_container}>
+         <div className={styles.message_box}>{alertAuth}</div>
             <div>{alertRequestError}</div>
-            <span className="span-login">Register </span>
+        <div className={styles.auth_container}>
+          
+            <span className={styles.span_login }>Register</span>
             <span placeholder="DisplayName"></span>
-            <input placeholder="Email"></input>
-            <input placeholder="Password"></input>
+            <input className={styles.special_input} placeholder="Email"></input>
+            <input className={styles.special_input} placeholder="Password"></input>
             <Button bsStyle="primary" 
             style={{marginBottom:"0%",marginTop:"2%"}}
               bsSize="large"
@@ -258,18 +254,12 @@ HandleDismissRequestErrorAlert=()=>{
               bsSize="large"
               onClick={()=>this.RegisterNewUser()} 
               block>
-              Register me!
+                 <span className={styles.span_responsive}>Register me!</span>
             </Button>
           </div>
        </div>
-       
-    :
-      <div className="parent-container">
-         
-         
-         </div>
-       
-      }
+     }
+   
 </ResizeAware>
     );
   }
