@@ -1,15 +1,19 @@
+/* eslint-disable no-restricted-globals */
 import React, { Component } from 'react';
 import ResizeAware from 'react-resize-aware';
 import SideNavigation from "../SideNavComponent/SideNav"
 import styles from'./MainDashboard.module.scss';
 import ItemTemplate from "../ItemComponent/ItemTemplate";
 import classnames from "classnames";
+import {Redirect} from 'react-router-dom';
 let cx=classnames.bind(styles);
+
 class MainDashboard extends Component{
 constructor(){
     super();
     this.state={
       IsMobile:false,
+      ItemDetailsModalOpen:false,
       Items:[],
       Mobile:{
         DrawerOpen:false
@@ -36,8 +40,21 @@ constructor(){
     })
   }
 
+  AccessItemDetails(itemIndex){
+    event.preventDefault();
+    console.log(itemIndex);
+    let showThisItemDetails=this.state.Items[itemIndex];
+    this.props.history.push({
+      pathname:"/Dashboard/NewItem",
+      state:{
+          itemPressed:showThisItemDetails,
+          shouldOpen:true
+       }
+     });
+  }
+
   render() {
-    
+   
     return (
       <ResizeAware
       onlyEvent
@@ -73,11 +90,13 @@ constructor(){
               <input className={[styles.special_input]}type="text"  placeholder="Search Something..." />
               </div>
 
-              <div className={styles.cards_list}>
-                {this.state.Items.map((item) =>
-              <ItemTemplate key={item}
-                        value={item} />)};
-              </div>
+            <div className={styles.cards_list}>
+                        {this.state.Items.map((item,index) =>
+                            <div onClick={()=>this.AccessItemDetails(index)}>
+                                <ItemTemplate key={item} value={item}/>
+                            </div>
+                        )};
+                    </div>
              
             
             </div>
